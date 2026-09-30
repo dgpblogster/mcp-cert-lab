@@ -1,0 +1,43 @@
+{
+  "$schema": "https://developer.microsoft.com/en-us/json-schemas/teams/vDevPreview/MicrosoftTeams.schema.json",
+  "manifestVersion": "devPreview",
+  "version": "1.0.0",
+  "id": "8f2c1d44-7b3e-4a19-9c55-0de6f1a27b83",
+  "developer": {
+    "name": "Contoso Manufacturing",
+    "websiteUrl": "https://www.contoso.com",
+    "privacyUrl": "https://www.contoso.com/privacy",
+    "termsOfUseUrl": "<TERMS_OF_USE_URL>"
+  },
+  "name": {
+    "short": "Contoso Shop Floor",
+    "full": "Contoso Shop Floor Operations MCP Server"
+  },
+  "description": {
+    "short": "Work order and machine status tools for shop floor agents.",
+    "full": "Exposes read and write tools over Contoso’s shop floor operations, for agents in Copilot Studio."
+  },
+  "agentConnectors": [
+    {
+      "id": "contoso-shopfloor",
+      "displayName": "Contoso Shop Floor",
+      "toolSource": {
+        "remoteMcpServer": {
+          "mcpServerUrl": "https://mcp.contoso.com/shopfloor",
+          "mcpToolDescription": {
+            "file": "mcptools.json"
+          },
+          "authorization": {
+            "type": "AzureKeyVault",
+            "referenceId": "https://contoso-mcp-kv.vault.azure.net/secrets/ClientId"
+          }
+        }
+      }
+    }
+  ],
+  "icons": {
+    "outline": "Outline.png",
+    "color": "Color.png"
+  },
+  "accentColor": "#1AA0E6"
+}

@@ -1,0 +1,50 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/teams/v1.30/MicrosoftTeams.schema.json",
+  "version": "1.30",
+  "id": "8f2c1d44-7b3e-4a19-9c55-0de6f1a27b83",
+  "developer": {
+    "name": "Contoso Manufacturing",
+    "websiteUrl": "https://www.contoso.com",
+    "privacyUrl": "https://www.contoso.com/privacy",
+    "termsOfUseUrl": "https://www.contoso.com/terms",
+    "contactInfo": {
+      "defaultSupport": {
+        "emailsForEmailSupport": [
+          "mcp-support@contoso.com"
+        ]
+      }
+    }
+  },
+  "name": {
+    "short": "Contoso Shop Floor",
+    "full": "Contoso Shop Floor Operations MCP Server"
+  },
+  "description": {
+    "short": "Work order and machine status tools for shop floor agents.",
+    "full": "Exposes read and write tools over Contoso shop floor operations: open work orders, machine status, downtime reasons and shift handover notes, for use by agents in Copilot Studio and Azure Foundry."
+  },
+  "agentConnectors": [
+    {
+      "id": "contoso-shopfloor",
+      "displayName": "Contoso Shop Floor",
+      "description": "Work orders, machine status and shift handover.",
+      "toolSource": {
+        "remoteMcpServer": {
+          "mcpServerUrl": "https://mcp.contoso.com/shopfloor",
+          "mcpToolDescription": {
+            "file": "mcptools.json"
+          },
+          "authorization": {
+            "type": "AzureKeyVault",
+            "referenceId": "https://contoso-mcp-kv.vault.azure.net/"
+          }
+        }
+      }
+    }
+  ],
+  "icons": {
+    "outline": "Outline.png",
+    "color": "Color.png"
+  },
+  "accentColor": "#1AA0E6"
+}

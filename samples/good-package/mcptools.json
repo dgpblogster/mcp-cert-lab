@@ -1,0 +1,61 @@
+{
+  "tools": [
+    {
+      "name": "list_open_work_orders",
+      "description": "Returns open work orders for a production line, newest first.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "lineId": {
+            "type": "string",
+            "description": "Production line identifier, for example LINE-04."
+          },
+          "limit": {
+            "type": "integer",
+            "description": "Maximum rows to return. Defaults to 25.",
+            "default": 25
+          }
+        },
+        "required": [
+          "lineId"
+        ]
+      }
+    },
+    {
+      "name": "get_machine_status",
+      "description": "Returns current status, last heartbeat and active downtime reason for one machine.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "machineId": {
+            "type": "string",
+            "description": "Machine identifier, for example MC-1187."
+          }
+        },
+        "required": [
+          "machineId"
+        ]
+      }
+    },
+    {
+      "name": "record_shift_handover",
+      "description": "Writes a shift handover note against a production line.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "lineId": {
+            "type": "string"
+          },
+          "note": {
+            "type": "string",
+            "description": "Free text handover note, 2000 characters maximum."
+          }
+        },
+        "required": [
+          "lineId",
+          "note"
+        ]
+      }
+    }
+  ]
+}
